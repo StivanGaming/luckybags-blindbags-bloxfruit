@@ -37,10 +37,19 @@ footer{ border-top:1px solid #ccc; padding:25px; text-align:center; color:#555; 
 <img src="https://i.ibb.co/Lzd8QJbZ/Untitled52-20251209162652.png" alt="Blox Fruit Lucky Block">
 <p>Dies ist der <strong>Blox Fruit Lucky Block</strong>. Ein spezieller Blind Bag voller Überraschungen und Spaß!</p>
 <p class="price">Originalpreis: 5 € | Rabatt: 100% | Preis: 0 €</p>
-<form action="mailto:stivangaminglol@gmail.com" method="post" enctype="text/plain">
-  <button type="submit">Kaufen (kostenlos!)</button>
-</form>
-<p>Warte bis zum nächsten Schultag und treffe mich in der Pause, um deine Tasche zu bekommen!</p>
+<button onclick="sendOrder('Blox Fruit Lucky Block')">Kaufen (kostenlos!)</button>
+
+<script>
+function sendOrder(bag){
+  fetch("https://discord.com/api/webhooks/1456322207188783286/hzQvrNCTVumgYo04pBVRapWjSWEmkw8EO64s8p2Olvk-epr_F9bavSGBQmvCI9P8mRTJ", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ content: `🔔 **Lucky Bags Bestellung:** ${bag}` })
+  });
+  alert("Deine Anfrage wurde gesendet!\nWarte bis zum nächsten Schultag und treffe mich in der Pause, um deine Tasche zu bekommen!");
+}
+</script>
+
 </main>
 
 <footer>© 2025 Lucky Bags</footer>
